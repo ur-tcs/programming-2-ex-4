@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div class="container" id="app">
+            <div class="row center">
+                <div class="calc-title">calculator</div>
+            </div>
+            <div class="row">
+            <div class="col s12">
+                <div class="card-panel">
+                    <span style="font-weight: 800; margin-right: 1em;">Expression Type:</span>
+                    <label class="expr-type-box">
+                        <input name="exprtype" type="radio" value="tiny" checked />
+                        <span>Tiny</span>
+                    </label>
+                    <label class="expr-type-box">
+                        <input name="exprtype" type="radio" value="basic" />
+                        <span>Basic</span>
+                    </label>
+                    <label class="expr-type-box">
+                        <input name="exprtype" type="radio" value="full" />
+                        <span>Full</span>
+                    </label>
+                    <!-- <div id="editor"></div> -->
+                    <div class="input-field expr-input-box">
+                        <textarea id="expr" type="text" class="materialize-textarea"></textarea>
+                        <label for="expr">Expression</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row center">
+                <button class="btn waves-effect waves-light blue lighten-1" 
+                    type="submit" name="action" id="btnShow"
+                    v-on:click="onShowClick">
+                    Send
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+            <div v-if="isError" class="row">
+                <div class="chip red lighten-3">
+                    Error
+                </div>
+                <div class="error-box">
+                    <pre>{{ errorMessage }}</pre>
+                </div>
+            </div>
+            <div v-for="content in contents" class="row">
+                <div class="col s12">
+                <div class="chip">
+                    {{ content.name }}
+                </div>
+                </div>
+                <div class="col s12" v-if="!content.multistep" v-html="content.html">
+                </div>
+                <div v-if="content.multistep">
+                    <div v-for="(step, idx) in content.steps" class="col s12">
+                        <div class="card-panel white">
+                            <b>Step {{ idx }}:</b><br>
+                            <code>{{ step.expr }}</code><br>
+
+                            <div v-html="step.graph"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col s12">
+                <div class="chip">
+                    Smallstep Evaluation
+                </div>
+                </div>
+                <div class="col s12 m6">
+                  <div class="card-panel white">
+                    <b>Step 0:</b><br>
+                    <code>1+1</code><br>
+
+                    CANVAS
+                  </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="card-panel white">
+                      <b>Step 1:</b><br>
+                      <code>1+1</code><br>
+  
+                      CANVAS
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="card-panel white">
+                      <b>Step 2:</b><br>
+                      <code>1+1</code><br>
+  
+                      CANVAS
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+        <script src="main.js"></script>
+    </body>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, {});
+});
+
+    </script>
+</html>
