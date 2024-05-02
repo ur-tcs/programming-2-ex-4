@@ -1,12 +1,12 @@
 # Programming 2 - Exercise 4 : Understand and Evaluate Arithmetic Expressions
 
-In this exercise, you will implement functions that relate to the evaluation and simplification of arithmetic expressions. 
+In this exercise, you will implement functions that relate to the evaluation and simplification of arithmetic expressions. You will also implement a parser that takes a string, for example `1 + 2 - 5`, as input and turns it into an abstract syntax tree that can then be evaluated.
 
-The most important exercises are marked with ⭐️. 
+The most important parts of the exercise are marked with ⭐️. 
 
 ## Abstract Syntax Trees
 
-Before we start programming, we should first take a moment to think about how arithmetic expressions are structured.  Looking back at *Introduction to Theoretical Computer Science I*, we have leaned that arithmetic expressions form a context-free language that can be constructed using a grammar. Parse trees, also called concrete syntax trees, are a tool that helps us understand the structure of an expression. (You do not need to have passed *Introduction to Theoretical Computer Science I* in order to do this exercise!)
+Before we start programming, we should first take a moment to think about how arithmetic expressions are structured.  Looking back at *Introduction to Theoretical Computer Science I*, we have learned that arithmetic expressions form a context-free language that can be constructed using a grammar. Parse trees, also called concrete syntax trees, are a tool that helps us understand the structure of an expression. (You do not need to have passed *Introduction to Theoretical Computer Science I* in order to do this exercise!)
 
 As such, arithmetic expressions are a minimal form of a programming language. Surprisingly, the methodologies and principles employed to construct the calculator in this lab bear significant resemblance to those utilized in programming language interpreters and compilers.
 
