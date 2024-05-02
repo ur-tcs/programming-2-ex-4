@@ -100,8 +100,7 @@ VSCode and Metals will actually do most of the work for you. A quick glance at h
 Here is the skeleton to be completed:
 
 ```Scala
-/** Re-implement the `toString` function of TinyExpr. */
-  def show(e: TinyExpr): String =
+  def show(e: Expr): String =
     "42"
 ```
 
@@ -109,8 +108,7 @@ Here is the skeleton to be completed:
 <summary> Solution </summary>
 
 ```Scala
-/** Re-implement the `toString` function of TinyExpr. */
-  def show(e: TinyExpr): String =
+  def show(e: Expr): String =
     e match
       case Number(value) => f"Number($value)"
       case Add(e1, e2)   => f"Add(${show(e1)},${show(e2)})"
@@ -144,7 +142,7 @@ Specially, use `--` for negation to disambiguate negation and subtraction. For i
 
 ```Scala
   /** Print the expression in Polish notation. */
-  def toPolish(e: TinyExpr): String =
+  def toPolish(e: Expr): String =
     "42"
 ```
 
