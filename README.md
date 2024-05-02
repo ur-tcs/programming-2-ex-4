@@ -50,7 +50,7 @@ The enum mirrors the structure of ASTs with remarkable fidelity:
 As a concrete example, to represent the AST of `1 + 2 * 3`, you would write:
 
 ```Scala
-Add(Number(1), Mul(Number(2), Number(3))).
+Add(Number(1.0), Mul(Number(2.0), Number(3.0))).
 ```
 
 **Question:** How are the ASTs of `1 + 2 * -(3 + 4)` and `-(1 * 2 + 3 * (4 + 5))` represented in Scala?
