@@ -235,7 +235,7 @@ object MiniParser extends JavaTokenParsers with PackratParsers {
     (expr<~"+")~num ^^ { case e1~e2 => Add(e1, e2) } |
     num
   lazy val num: PackratParser[Expr] = 
-    floatingPointNumber ^^ {x => Number(x.toDouble) }
+    floatingPointNumber ^^ { case x => Number(x.toDouble) }
 
   def parse(text: String) = parseAll(expr, text)
 } 
@@ -246,7 +246,7 @@ Here's what's new:
 * `PackratParsers` allows us to implement left-recursive grammars. We had to replace `def` with the more flexible `lazy val` when defining `expr` and `num`. 
 * `PackratParser[Expr]` tells us the return type of the parser, which is `Expr`.
 * `<~` (as well as `~>`) allows us to discard unnecessary parser results. It means "only remember the stuff I'm pointing at".
-* We have used the operator `^^` to transform the result of a parser. For example, `floatingPointNumber` returns the string it parsed, not a number. If we want to apply `.toDouble` to this string, we can write `floatingPointNumber ˆˆ (_.toDouble)`. We also need to wrap this number into a `Number()`expression.
+* We have used the operator `^^` to transform the result of a parser. For example, `floatingPointNumber` returns the string it parsed, not a number. If we want to apply `.toDouble` to this string, we can write `floatingPointNumber ˆˆ { case x => x.toDouble }`. We also need to wrap this number into a `Number()`expression.
 * A string `s` can now be parsed with the command `parse(s)`, hiding redundant components.
 
 If we test this new parser, we get:
@@ -332,7 +332,7 @@ Their functions are documented in https://github.com/scala/scala-parser-combinat
 The parser `ident` parses strings that are valid Java identifiers, i. e., strings that start with a letter followed by an arbitrary number of letters and numbers. Use 
 
 ```Scala
-ident ^^ {x => Var(x.toString)}
+ident ^^ { case x => Var(x.toString) }
 ```
 .
 
