@@ -95,7 +95,7 @@ VSCode and Metals will actually do most of the work for you. A quick glance at h
 
 ### Printer 1: `show`
 
-**Your first task** is to implement a function `show` that takes an arithmetic expression as input, and prints the corresponding Scala expression as seen above. For example, `show(1+2)` should print the expression `Add(Number(1.0),Number(2.0))`. In fact, this is how the built-in `toString` method prints the expression enum.
+**Your first task** is to implement a function `show` that takes an arithmetic expression as input, and prints the corresponding Scala expression as seen above. For example, `show` applied to the AST of `1 + 2 ` should print the expression `Add(Number(1.0),Number(2.0))`. In fact, this is how the built-in `toString` method prints the expression enum.
 
 Here is the skeleton to be completed:
 
