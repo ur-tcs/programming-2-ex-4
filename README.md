@@ -114,6 +114,7 @@ Here is the skeleton to be completed:
       case Add(e1, e2)   => f"Add(${show(e1)},${show(e2)})"
       case Minus(e1, e2) => f"Minus(${show(e1)},${show(e2)})"
       case Mul(e1, e2)   => f"Mul(${show(e1)},${show(e2)})"
+      case Div(e1, e2)   => f"Div(${show(e1)},${show(e2)})"
       case Neg(e)        => f"Neg(${show(e)})"
 ```
 
