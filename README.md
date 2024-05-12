@@ -106,6 +106,8 @@ Here is the skeleton to be completed:
     "42"
 ```
 
+Remember to define the `Expr` enum properly, for example by simply copying the definition from above. You can/should also add the line `import Expr.*`.
+
 <details>
 <summary> Solution </summary>
 
@@ -270,7 +272,7 @@ Add(Add(Add(Add(Number(1.0),Number(2.0)),Number(3.0)),Number(4.0)),Number(5.0))
 Use this grammar:
 
     <Expr> ::= <Expr> "+" <Term> | <Expr> "-" <Term> | <Term>
-    <Term> ::= <Term> "*" <Factor> | <Term> "/" <Factor> | <Factor>
+    <Term> ::= <Term> "*" <Factor> | <Term> "/" <Factor> | <Factor> | "-" <Factor>
     <Factor> ::= "floatingPointNumber" | "(" <Expr> ")"
 
 </details><br/>
