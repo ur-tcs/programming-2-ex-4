@@ -4,6 +4,8 @@ In this exercise, you will implement functions that relate to the evaluation and
 
 The most important parts of the exercise are marked with ⭐️. 
 
+__Your are allowed to copy/clone/fork this repository, but not to share solutions of the exercise in any public repository or web page.__
+
 ## Abstract Syntax Trees
 
 Before we start programming, we should first take a moment to think about how arithmetic expressions are structured.  Looking back at *Introduction to Theoretical Computer Science I*, we have learned that arithmetic expressions form a context-free language that can be constructed using a grammar. Parse trees, also called concrete syntax trees, are a tool that helps us understand the structure of an expression. (You do not need to have passed *Introduction to Theoretical Computer Science I* in order to do this exercise!)
